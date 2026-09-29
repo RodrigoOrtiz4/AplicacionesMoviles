@@ -67,11 +67,6 @@ fun App() {
         }
     }
 }
-
-// =====================================================================
-// Modelo de datos + serialización manual a JSON (sin dependencias extra:
-// no requiere kotlinx.serialization, solo construimos el texto a mano).
-// =====================================================================
 private data class RegistroEntrega(
     val nombre: String,
     val matricula: String,
@@ -95,8 +90,8 @@ private fun escaparJson(texto: String): String = buildString {
 
 private fun RegistroEntrega.aJson(): String = """{
   "nombre": "${escaparJson(nombre)}",
-  "matricula": "${escaparJson(matricula)}",
-  "asignatura": "${escaparJson(asignatura)}",
+  "codigo": "${escaparJson(matricula)}",
+  "materia": "${escaparJson(asignatura)}",
   "hora": "${escaparJson(hora)}",
   "fechaEntrega": "${escaparJson(fechaEntrega)}"
 }"""
@@ -109,24 +104,11 @@ private fun List<RegistroEntrega>.aJsonArray(): String {
     }
     return "[\n$cuerpo\n]"
 }
-
-// =====================================================================
-// Utilidades de fecha/hora sin dependencias externas (100% Kotlin común,
-// funciona en Android, iOS, Desktop y Web igual).
-// =====================================================================
 private fun dosDigitos(n: Int): String = n.toString().padStart(2, '0')
 
 private fun formatoFecha(dia: Int, mes: Int, anio: Int): String =
     "${dosDigitos(dia)}/${dosDigitos(mes)}/${anio.toString().padStart(4, '0')}"
 
-/**
- * Día de hoy expresado como "epoch day" (días desde 1970-01-01), en UTC.
- * Usa kotlin.time.Clock, disponible en la stdlib desde Kotlin 2.1 sin
- * dependencias adicionales. Si tu proyecto usa una versión de Kotlin
- * anterior y esto no compila, reemplaza el import por
- * "import kotlinx.datetime.Clock" (agregando la dependencia
- * "org.jetbrains.kotlinx:kotlinx-datetime") — el resto del código no cambia.
- */
 @OptIn(ExperimentalTime::class)
 private fun hoyEpochDay(): Long = Clock.System.now().toEpochMilliseconds() / 86_400_000L
 
@@ -183,7 +165,7 @@ private val ASIGNATURAS = listOf(
     "Estructuras de Datos",
     "Redes de Computadoras",
     "Matemáticas Discretas",
-    "Inglés Técnico"
+    "Ingles Britanico"
 )
 
 // =====================================================================
