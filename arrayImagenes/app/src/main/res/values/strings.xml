@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">arrayImagenes</string>
+    <string name="Texto_btn_Abecedario">Abecedario</string>
+    <string name="bienvenido">BIENVENIDO</string>
+    <string name="teclado">TECLADO</string>
+    <string name="abecedario">ABECEDARIO</string>
+    <string name="acerca_de">ACERCA DE</string>
+    <string name="integrantes_del_equipo_1_enciso_p_rez_emiliano_2_hern_ndez_apolonio_fernanda_valeria_3_pacheco_jim_nez_alexa_fernanda_4_perrusquia_cid_frida_susana_5_soto_bardales_monserrat">Integrantes del equipo: 1. Enciso Pérez Emiliano. 2. Hernández Apolonio Fernanda Valeria. 3. Pacheco Jiménez Alexa Fernanda. 4. Perrusquia Cid Frida Susana. 5. Soto Bardales Monserrat.</string>
+    <string name="comunicando_y_conectando_con_sordomudos">COMUNICANDO Y CONECTANDO CON SORDOMUDOS</string>
+</resources>
